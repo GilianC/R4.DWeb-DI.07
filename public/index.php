@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Controller;
+
 use App\Kernel;
 
 require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
@@ -10,5 +12,4 @@ return function (array $context) {
 
 
 /* indique où "vit" ce fichier */
-namespace App\Controller;
 
