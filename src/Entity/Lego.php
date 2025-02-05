@@ -8,8 +8,8 @@ class Lego
     private ?string $description;
     private ?float $prix;
     private ?int $pieces;
-    private ?string $imageDeLaBoite;
-    private ?string $imageArriere;
+    private ?string $boxImage;
+    private ?string $legoImage;
 
     public function __construct(int $identifiant, string $nom, string $collection)
     {
@@ -78,23 +78,23 @@ class Lego
         $this->pieces = $pieces;
     }
 
-    public function getImageDeLaBoite(): ?string
+    public function getBoxImage(): ?string
     {
-        return $this->imageDeLaBoite;
+        return $this->boxImage;
     }
 
-    public function setImageDeLaBoite(?string $imageDeLaBoite): void
+    public function setBoxImage(?string $boxImage): void
     {
-        $this->imageDeLaBoite = $imageDeLaBoite;
+        $this->boxImage = $boxImage;
     }
 
     public function getImageArriere(): ?string
     {
-        return $this->imageArriere;
+        return $this->legoImage;
     }
 
-    public function setImageArriere(?string $imageArriere): void
+    public function setImageArriere(?string $legoImage): void
     {
-        $this->imageArriere = $imageArriere;
+        $this->legoImage = $legoImage;
     }
 }
