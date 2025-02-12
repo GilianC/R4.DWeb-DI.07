@@ -16,29 +16,41 @@ class LegoService
         $this->pdo = new PDO($cnx, 'root', 'root');
         
     }
-    public function getLego(): Lego
+    public function getLegos(): array
     {
-        $query = $this->pdo->prepare('SELECT * FROM lego WHERE id = :id');
-        $query->execute(['id' => 1]);
+        $query = $this->pdo->prepare('SELECT * FROM lego');
+        $query->execute();
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
-    
-        $legos = null;
+        $legos = [];
+        
         foreach ($results as $stat) {
-            $lego = new Lego($stat['id'], $stat['nom'], $stat['collection']);
+            $lego = new Lego($stat['id'], $stat['name'], $stat['collection']);
             $lego->setDescription($stat['description']);
-            $lego->setPrix($stat['prix']);
+            $lego->setPrice($stat['price']);
             $lego->setPieces($stat['pieces']);
             $lego->setBoxImage($stat['imagebox']);
-            $lego->setImageArriere($stat['imagebg']);
-            $legos[]= $lego;
-            break;
+            $lego->setLegoImage($stat['imagebg']);
+            $legos[] = $lego;
         }
-    
-        return $legos ?? new Lego(0, 'Undefined', 'Undefined');
-            }
+        return $legos;
+    }
+    public function getLegoByCategory($category): array{
+        $query = $this->pdo->prepare('SELECT * FROM lego WHERE collection = :category');
+        $query->execute([':category' =>$category]);
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        $legos = [];
 
+        foreach ($results as $stat) {
+            $lego = new Lego($stat['id'], $stat['name'], $stat['collection']);
+            $lego->setDescription($stat['description']);
+            $lego->setPrice($stat['price']);
+            $lego->setPieces($stat['pieces']);
+            $lego->setBoxImage($stat['imagebox']);
+            $lego->setLegoImage($stat['imagebg']);
+            $legos[] = $lego;
+        }
 
-        
-
+        return $legos;
 
     }
+}

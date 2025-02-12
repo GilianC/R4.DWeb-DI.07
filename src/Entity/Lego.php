@@ -1,41 +1,45 @@
 <?php
 namespace App\Entity;
+
 class Lego
 {
-    private int $identifiant;
-    private string $nom;
+    private int $id;
+    private string $name;
     private string $collection;
-    private ?string $description;
-    private ?float $prix;
-    private ?int $pieces;
-    private ?string $boxImage;
-    private ?string $legoImage;
+    private ?string $description = null;
+    private ?float $price = null;
+    private ?int $pieces = null;
+    private ?string $boxImage = null;
+    private ?string $legoImage = null;
 
-    public function __construct(int $identifiant, string $nom, string $collection)
+    public function __construct(int $id, string $name, string $collection)
     {
-        $this->identifiant = $identifiant;
-        $this->nom = $nom;
+        $this->id = $id;
+        $this->name = $name;
         $this->collection = $collection;
     }
 
-    public function getIdentifiant(): int
+    // ... existing getters and setters ...
+
+
+    public function getId(): int
     {
-        return $this->identifiant;
+        return $this->id;
     }
 
-    public function setIdentifiant(int $identifiant): void
+    public function setId(int $id): void
     {
-        $this->identifiant = $identifiant;
+        $this->id = $id;
     }
 
-    public function getNom(): string
+    public function getName(): string
     {
-        return $this->nom;
+        return $this->name;
     }
 
-    public function setNom(string $nom): void
+    public function setName(string $name): void
     {
-        $this->nom = $nom;
+        $this->name = $name;
     }
 
     public function getCollection(): string
@@ -58,14 +62,14 @@ class Lego
         $this->description = $description;
     }
 
-    public function getPrix(): ?float
+    public function getPrice(): ?float
     {
-        return $this->prix;
+        return $this->price;
     }
 
-    public function setPrix(?float $prix): void
+    public function setPrice(?float $price): void
     {
-        $this->prix = $prix;
+        $this->price = $price;
     }
 
     public function getPieces(): ?int
@@ -88,12 +92,12 @@ class Lego
         $this->boxImage = $boxImage;
     }
 
-    public function getImageArriere(): ?string
+    public function getLegoImage(): ?string
     {
         return $this->legoImage;
     }
 
-    public function setImageArriere(?string $legoImage): void
+    public function setLegoImage(?string $legoImage): void
     {
         $this->legoImage = $legoImage;
     }

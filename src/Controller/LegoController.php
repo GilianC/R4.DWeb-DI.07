@@ -12,18 +12,19 @@ class LegoController extends AbstractController
     #[Route('/', name: 'home')]
     public function home(LegoService $legoService): Response
     {
-        $lego = $legoService->getLego();
-
-        
-
+        $legos = $legoService->getLegos();
         return $this->render('lego.html.twig', [
-            'lego' => $lego,
+            'legos' => $legos,
         ]);
     }
 
-    #[Route('/yo', name: 'yo')]
-    public function yo()
+    #[Route('/{collection}', name: 'filter_by_collection')]
+    public function filter(string $collection, LegoService $legoService): Response
     {
-        die("C'est moi le boss.");
+        $legos = $legoService->getLegoByCategory($collection);
+        return $this->render('lego.html.twig', [
+            'legos' => $legos,
+        ]);
     }
+
 }
