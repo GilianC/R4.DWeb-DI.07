@@ -7,6 +7,8 @@ Vérifiez que Docker Desktop est lancé en cherchant son icône dans la barre de
 
 Ouvrez VS Code, connectez-vous à votre Ubuntu avec WSL (bouton bleu avec les doubles flèches en bas à droite), puis ouvrez le dossier contenant votre application.
 
+Bonjour 
+
 Lancer l'environnement Docker : installer l'extension "Docker" pour VS Code si ce n'est pas déjà fait, faites un clic droit sur le fichier docker-compose.yml, puis "Compose Up". Vous pouvez aussi ouvrir un terminal dans le dossier du projet, et faire un `docker compose up -d`.
 
 Installer les dépendances nécessaires : ouvrez un terminal dans le conteneur "tp-symfony-php" à partir de VS Code (Icône Docker à gauche, clic droit sur le conteneur, puis "Attach Shell") et faites un `composer install`.
