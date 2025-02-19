@@ -18,6 +18,7 @@ class LegoController extends AbstractController
         ]);
     }
 
+    
     #[Route('/{collection}', name: 'filter_by_collection')]
     public function filter(string $collection, LegoService $legoService): Response
     {

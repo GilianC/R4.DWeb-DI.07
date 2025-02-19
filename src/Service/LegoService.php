@@ -40,6 +40,8 @@ class LegoService
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
         $legos = [];
 
+
+        
         foreach ($results as $stat) {
             $lego = new Lego($stat['id'], $stat['name'], $stat['collection']);
             $lego->setDescription($stat['description']);

@@ -23,6 +23,7 @@ class Lego
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
+    
     #[ORM\Column]
     private ?float $price = null;
 
