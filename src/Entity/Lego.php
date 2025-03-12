@@ -36,6 +36,10 @@ class Lego
     #[ORM\Column(length: 255)]
     private ?string $legoImage = null;
 
+    #[ORM\ManyToOne(inversedBy: 'Lego')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?LegoCollection $legocollection = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +125,18 @@ class Lego
     public function setLegoImage(string $legoImage): static
     {
         $this->legoImage = $legoImage;
+
+        return $this;
+    }
+
+    public function getLegocollection(): ?LegoCollection
+    {
+        return $this->legocollection;
+    }
+
+    public function setLegocollection(?LegoCollection $legocollection): static
+    {
+        $this->legocollection = $legocollection;
 
         return $this;
     }

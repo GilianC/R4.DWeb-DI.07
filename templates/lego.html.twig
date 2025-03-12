@@ -6,6 +6,15 @@
 {% for lego in legos %}
 
     {{ parent() }}
+<nav>
+<a href="{{ path('login') }}">Se connecter</a> |
+  <a href="{{ path('home') }}">All</a> |
+  {% for collection in collections %}
+    <a href="{{ path('filter_by_collection', {'id': collection.id}) }}">
+      {{ collection.name }}
+    </a>{% if not loop.last %} | {% endif %}
+  {% endfor %}
+</nav>
     {# Child-specific content goes here #}
     <div class="content">
         <!-- Your additional content -->
@@ -17,7 +26,7 @@
         <div class="lego_header">
           <img class="locandina" src="/images/{{lego.boxImage}}"/>
           <h1>{{lego.name}}</h1>
-          <h4>Collection : {{lego.collection}}</h4>
+         <h4>Collection : {{ lego.legocollection.name }}</h4>
           <span class="pieces">Pièces : {{lego.pieces}}</span>
           <p class="price">{{lego.price}}€</p><br>
           <a href="index.php?buy={{lego.id}}"><button>Buy</button></a>
