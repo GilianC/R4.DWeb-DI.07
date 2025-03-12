@@ -31,7 +31,7 @@ class Lego
     private ?int $pieces = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $boxImage = null;
+    private ?string $box_image = null;
 
     #[ORM\Column(length: 255)]
     private ?string $legoImage = null;
@@ -103,12 +103,12 @@ class Lego
 
     public function getBoxImage(): ?string
     {
-        return $this->boxImage;
+        return $this->box_image;
     }
 
-    public function setBoxImage(string $boxImage): static
+    public function setBoxImage(string $box_image): static
     {
-        $this->boxImage = $boxImage;
+        $this->box_image = $box_image;
 
         return $this;
     }
